@@ -1,0 +1,1 @@
+A plugin for managing banner images into slideshows
