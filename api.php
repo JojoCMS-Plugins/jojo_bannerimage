@@ -26,7 +26,7 @@ $_options[] = array(
     'plugin' => 'jojo_bannerimage'
 );
 $_options[] = array(
-    'id' => 'bannerimages_random',
+    'id' => 'bannerimage_random',
     'category' => 'Banner Images',
     'label' => 'Shuffle images',
     'description' => 'If yes, the images will be shuffled before being displayed. If Start, the images will start from a random point, in order.',
