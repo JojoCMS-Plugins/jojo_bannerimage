@@ -19,10 +19,32 @@
 
 /* Create bannerimages array for header, shuffle them randomly and pick x to display {array_slice($bannerimages, 0, x) }*/
 
-    $bannerimages = JOJO_Plugin_Jojo_bannerimage::getBannerImages();
-    shuffle($bannerimages);
-    $bannerimages = array_slice($bannerimages, 0, Jojo::getOption('bannerimages_num', 3));
-    $smarty->assign('bannerimages', $bannerimages);
+    $bannerimage_num = Jojo::getOption('bannerimages_num', 3);
+    if ($bannerimage_num != 0) {
+		$bannerimages = JOJO_Plugin_Jojo_bannerimage::getBannerImages();
+		$shuffle_mode = Jojo::getOption('bannerimages_shuffle', 'yes');
+		$count = count($bannerimages);
+		if ($count) {
+		    if ($shuffle_mode == 'yes') {
+		        shuffle($bannerimages);
+		    } else
+		    if ($shuffle_mode == 'start') {
+		        $split_point = rand(0, $count-1);
+		        $first = array_slice($bannerimages, 0, $split_point);
+		        $second = array_slice($bannerimages, $split_point);
+		        $bannerimages = array_merge($second, $first);
+		        /*
+		        for ($i=0; $i<=$split_point; $i++) {
+		            array_push($bannerimages, array_shift($bannerimages));
+		        }
+		        */
+			}
+		}
+		if ($bannerimage_num != -1) {
+			$bannerimages = array_slice($bannerimages, 0, $bannerimage_num);
+		}
+		$smarty->assign('bannerimages', $bannerimages);
+	}
     
     
     
