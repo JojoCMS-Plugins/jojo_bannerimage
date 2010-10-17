@@ -22,7 +22,7 @@
     $bannerimage_num = Jojo::getOption('bannerimages_num', 3);
     if ($bannerimage_num != 0) {
 		$bannerimages = JOJO_Plugin_Jojo_bannerimage::getBannerImages();
-		$shuffle_mode = Jojo::getOption('bannerimages_random', 'yes');
+		$shuffle_mode = Jojo::getOption('bannerimage_random', 'yes');
 		$count = count($bannerimages);
 		if ($count) {
 		    if ($shuffle_mode == 'yes') {
