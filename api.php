@@ -22,7 +22,8 @@ $_options[] = array(
     'description' => 'The number of banner images to rotate in the slideshow on each page. Use -1 for all.',
     'type' => 'integer',
     'default' => '3',
-    'options' => ''
+    'options' => '',
+    'plugin' => 'jojo_bannerimage'
 );
 $_options[] = array(
     'id' => 'bannerimages_random',
@@ -32,4 +33,5 @@ $_options[] = array(
     'type' => 'radio',
     'default' => 'yes',
     'options' => 'yes,start,no',
+    'plugin' => 'jojo_bannerimage'
 );
