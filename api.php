@@ -25,7 +25,7 @@ $_options[] = array(
     'options' => ''
 );
 $_options[] = array(
-    'id' => 'bannerimages_shuffle',
+    'id' => 'bannerimages_random',
     'category' => 'Banner Images',
     'label' => 'Shuffle images',
     'description' => 'If yes, the images will be shuffled before being displayed. If Start, the images will start from a random point, in order.',
