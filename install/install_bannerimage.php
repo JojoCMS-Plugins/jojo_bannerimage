@@ -12,7 +12,7 @@ $query = "
       `bi_caption` varchar(255) NOT NULL default '',
       ";
 if (_MULTILANGUAGE) {
-    $languages = Jojo::selectQuery("SELECT * from {language} WHERE `active` = 'yes'");
+    $languages = Jojo::selectQuery("SELECT * from {language} WHERE `active` = '1'");
     $dlanguage = Jojo::getOption('multilanguage-default', 'en');
           
     foreach ($languages as $l ){    

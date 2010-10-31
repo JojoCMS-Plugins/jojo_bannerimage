@@ -75,7 +75,7 @@ $default_fd[$table][$field]['fd_tabname'] = 'Content';
 
 if (_MULTILANGUAGE) {
     $dlanguage = Jojo::getOption('multilanguage-default', 'en');
-    $languages = Jojo::selectQuery("SELECT * from {language} WHERE `active` = 'yes'");
+    $languages = Jojo::selectQuery("SELECT * from {language} WHERE `active`=1");
     foreach ($languages as $l ){    
         if ($l['languageid'] != $dlanguage) {
             $field = 'bi_caption_' . $l['languageid'];
