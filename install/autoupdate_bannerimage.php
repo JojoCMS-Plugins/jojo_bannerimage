@@ -24,7 +24,7 @@ if (!defined('_MULTILANGUAGE')) {
 $table = 'bannerimage';
 $o = 1;
 
-$default_td[$table]['td_displayfield'] = 'bi_name';
+$default_td[$table]['td_displayfield'] = 'if(CHAR_LENGTH(bi_name) > 0, bi_name, bi_image)';
 $default_td[$table]['td_parentfield'] = '';
 $default_td[$table]['td_orderbyfields'] = 'bi_name';
 $default_td[$table]['td_topsubmit'] = 'yes';
@@ -48,9 +48,9 @@ $default_fd[$table][$field]['fd_tabname'] = 'Content';
 $field = 'bi_name';
 $default_fd[$table][$field]['fd_order'] = $o++;
 $default_fd[$table][$field]['fd_type'] = 'text';
-$default_fd[$table][$field]['fd_required'] = 'yes';
+$default_fd[$table][$field]['fd_required'] = 'no';
 $default_fd[$table][$field]['fd_size'] = '60';
-$default_fd[$table][$field]['fd_help'] = 'Title of the image.';
+$default_fd[$table][$field]['fd_help'] = 'Title of the image (for identification, not used for display).';
 $default_fd[$table][$field]['fd_mode'] = 'basic';
 $default_fd[$table][$field]['fd_tabname'] = 'Content';
 
@@ -67,7 +67,7 @@ $default_fd[$table][$field]['fd_required'] = 'yes';
 $field = 'bi_caption';
 $default_fd[$table][$field]['fd_order'] = $o++;
 $default_fd[$table][$field]['fd_type'] = 'text';
-$default_fd[$table][$field]['fd_required'] = 'yes';
+$default_fd[$table][$field]['fd_required'] = 'no';
 $default_fd[$table][$field]['fd_size'] = '80';
 $default_fd[$table][$field]['fd_help'] = 'Caption description of the image.';
 $default_fd[$table][$field]['fd_mode'] = 'basic';
