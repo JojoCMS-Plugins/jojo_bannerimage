@@ -23,7 +23,7 @@ class JOJO_Plugin_Jojo_bannerimage extends JOJO_Plugin
             $a['name'] = htmlspecialchars($a['bi_name'], ENT_COMPAT, 'UTF-8', false);
             $a['caption'] = (_MULTILANGUAGE && $language != $dlanguage && $a['bi_caption' . '_' . $language] ) ? $a['bi_caption' . '_' . $language] : $a['bi_caption' ];
             $a['caption'] = htmlspecialchars($a['caption'], ENT_COMPAT, 'UTF-8', false);
-            $a['src'] = $a['bi_image'];
+            $a['src'] = urlencode($a['bi_image']);
         }
         return $bannerimages;
     }
