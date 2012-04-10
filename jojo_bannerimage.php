@@ -17,8 +17,10 @@ class JOJO_Plugin_Jojo_bannerimage extends JOJO_Plugin
         global $page;
         if (_MULTILANGUAGE) $language = !empty($page->page['pg_language']) ? $page->page['pg_language'] : Jojo::getOption('multilanguage-default', 'en');
         $dlanguage = Jojo::getOption('multilanguage-default', 'en');
+        $order = Jojo::getOption('bannerimage_random', 'yes')=='no' ? 'displayorder, bi_name': 'bi_name';
+        $query = "SELECT * FROM {bannerimage} ORDER BY " . $order;
 
-        $bannerimages = JOJO::selectQuery("SELECT * FROM {bannerimage} ORDER BY bi_name ");
+        $bannerimages = Jojo::selectQuery($query);
         foreach ($bannerimages as &$a){
             $a['name'] = htmlspecialchars($a['bi_name'], ENT_COMPAT, 'UTF-8', false);
             $a['caption'] = (_MULTILANGUAGE && $language != $dlanguage && $a['bi_caption' . '_' . $language] ) ? $a['bi_caption' . '_' . $language] : $a['bi_caption' ];

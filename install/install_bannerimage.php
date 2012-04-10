@@ -10,6 +10,7 @@ $query = "
       `bannerimageid` int(11) NOT NULL auto_increment,
       `bi_name` varchar(255) NOT NULL default '',
       `bi_caption` varchar(255) NOT NULL default '',
+      `displayorder` int(3) NOT NULL default '0',
       ";
 if (_MULTILANGUAGE) {
     $languages = Jojo::selectQuery("SELECT * from {language} WHERE `active` = '1'");

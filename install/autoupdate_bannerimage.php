@@ -26,7 +26,7 @@ $o = 1;
 
 $default_td[$table]['td_displayfield'] = 'if(CHAR_LENGTH(bi_name) > 0, bi_name, bi_image)';
 $default_td[$table]['td_parentfield'] = '';
-$default_td[$table]['td_orderbyfields'] = 'bi_name';
+$default_td[$table]['td_orderbyfields'] = 'displayorder, bi_name';
 $default_td[$table]['td_topsubmit'] = 'yes';
 $default_td[$table]['td_filter'] = 'yes';
 $default_td[$table]['td_deleteoption'] = 'yes';
@@ -62,6 +62,16 @@ $default_fd[$table][$field]['fd_help'] = 'An image for the banner';
 $default_fd[$table][$field]['fd_mode'] = 'standard';
 $default_fd[$table][$field]['fd_tabname'] = 'Content';
 $default_fd[$table][$field]['fd_required'] = 'yes';
+
+//Order
+$field = 'displayorder';
+$default_fd[$table][$field]['fd_order'] = $o++;
+$default_fd[$table][$field]['fd_name'] = 'Display Order';
+$default_fd[$table][$field]['fd_type'] = 'integer';
+$default_fd[$table][$field]['fd_help'] = 'optional - only applied if random order option disabled';
+$default_fd[$table][$field]['fd_mode'] = 'standard';
+$default_fd[$table][$field]['fd_tabname'] = 'Content';
+$default_fd[$table][$field]['fd_required'] = 'no';
 
 //Image caption
 $field = 'bi_caption';
