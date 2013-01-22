@@ -29,4 +29,49 @@ class JOJO_Plugin_Jojo_bannerimage extends JOJO_Plugin
         }
         return $bannerimages;
     }
+
+    public static function bannerHTML()
+    {
+        global $smarty;
+        $bannerimages = self::getBannerImages();
+        if ($bannerimages) {
+            $bannerimage_num = Jojo::getOption('bannerimages_num', 3);
+            $shuffle_mode = Jojo::getOption('bannerimage_random', 'yes');
+            $count = count($bannerimages);
+            if ($count) {
+                if ($shuffle_mode == 'yes') {
+                    shuffle($bannerimages);
+                } else
+                if ($shuffle_mode == 'start') {
+                    $split_point = rand(0, $count-1);
+                    $first = array_slice($bannerimages, 0, $split_point);
+                    $second = array_slice($bannerimages, $split_point);
+                    $bannerimages = array_merge($second, $first);
+                    /*
+                    for ($i=0; $i<=$split_point; $i++) {
+                        array_push($bannerimages, array_shift($bannerimages));
+                    }
+                    */
+                }
+            }
+            if ($bannerimage_num != -1) {
+                $bannerimages = array_slice($bannerimages, 0, $bannerimage_num);
+            }
+            $smarty->assign('bannerimages', $bannerimages);
+
+            $smarty->assign('bannernum', $bannerimage_num);
+            $smarty->assign('bannersize', Jojo::getOption('bannerimage_size', '940x200'));
+            $smarty->assign('bannercaptions', (boolean)(Jojo::getOption('bannerimage_captions', 'yes')=='yes'));
+            $smarty->assign('bannercarousel', (boolean)(Jojo::getOption('bannerimage_carousel', 'no')=='yes'));
+            $smarty->assign('bannercarouselnav', (boolean)(Jojo::getOption('bannerimage_carousel_nav', 'yes')=='yes'));
+            $smarty->assign('bannercarouselpause', (Jojo::getOption('bannerimage_carousel_pause', 'yes')=='yes' ? 'hover' : 'none'));
+            $smarty->assign('bannerinterval', Jojo::getOption('bannerimages_interval', 6000));
+            $smarty->assign('bannerslide', (boolean)(Jojo::getOption('bannerimage_slide', 'yes')=='yes'));
+            $bannercode = $smarty->fetch('jojo_bannerimage.tpl');
+            return $bannercode;
+        }
+        return '';
+    }
+
+
 }

@@ -1,0 +1,1 @@
+Insert {jojoHook hook="BannerImages"} into your template where you would like the slideshow to appear. Set the size in options. For the Bootstrap Carousel version Less and the Bootstrap base and Carousel options (under css) must be enabled.

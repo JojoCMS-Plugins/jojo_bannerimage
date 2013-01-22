@@ -10,20 +10,21 @@ $query = "
       `bannerimageid` int(11) NOT NULL auto_increment,
       `bi_name` varchar(255) NOT NULL default '',
       `bi_caption` varchar(255) NOT NULL default '',
+      `link` varchar(255) NOT NULL default '',
       `displayorder` int(3) NOT NULL default '0',
       ";
 if (_MULTILANGUAGE) {
     $languages = Jojo::selectQuery("SELECT * from {language} WHERE `active` = '1'");
     $dlanguage = Jojo::getOption('multilanguage-default', 'en');
-          
-    foreach ($languages as $l ){    
+
+    foreach ($languages as $l ){
         if ($l['languageid'] != $dlanguage) {
         $query .= "`bi_caption_" . $l['languageid']  . "` varchar(255),
         ";
         }
-    }      
-}           
-$query .= "      
+    }
+}
+$query .= "
       `bi_image` varchar(255) NOT NULL default '',
       PRIMARY KEY  (`bannerimageid`),
       FULLTEXT KEY `caption` (`bi_caption`)

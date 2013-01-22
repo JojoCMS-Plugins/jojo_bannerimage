@@ -74,6 +74,16 @@ $default_fd[$table][$field]['fd_tabname'] = 'Content';
 $default_fd[$table][$field]['fd_required'] = 'no';
 
 //Image caption
+$field = 'link';
+$default_fd[$table][$field]['fd_order'] = $o++;
+$default_fd[$table][$field]['fd_type'] = 'text';
+$default_fd[$table][$field]['fd_required'] = 'no';
+$default_fd[$table][$field]['fd_size'] = '80';
+$default_fd[$table][$field]['fd_help'] = 'A page link that clicking the image will take you to (leave blank to disable)';
+$default_fd[$table][$field]['fd_mode'] = 'basic';
+$default_fd[$table][$field]['fd_tabname'] = 'Content';
+
+//Image caption
 $field = 'bi_caption';
 $default_fd[$table][$field]['fd_order'] = $o++;
 $default_fd[$table][$field]['fd_type'] = 'text';
@@ -86,7 +96,7 @@ $default_fd[$table][$field]['fd_tabname'] = 'Content';
 if (_MULTILANGUAGE) {
     $dlanguage = Jojo::getOption('multilanguage-default', 'en');
     $languages = Jojo::selectQuery("SELECT * from {language} WHERE `active`=1");
-    foreach ($languages as $l ){    
+    foreach ($languages as $l ){
         if ($l['languageid'] != $dlanguage) {
             $field = 'bi_caption_' . $l['languageid'];
             $default_fd[$table][$field]['fd_order']     = $o++;
@@ -96,5 +106,5 @@ if (_MULTILANGUAGE) {
             $default_fd[$table][$field]['fd_mode']      = 'basic';
             $default_fd[$table][$field]['fd_tabname'] = 'Content';
         }
-    }      
+    }
 }
