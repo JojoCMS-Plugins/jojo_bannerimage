@@ -1,7 +1,7 @@
 <div id="bannerslider"{if $bannercarousel} class="carousel slide"{/if}>
     <div {if $bannercarousel}class="carousel-inner"{else}id="imageContainer"{if $bannernum==1 || !$bannerslide} class="no-slide"{/if}{/if}>
         <!-- Carousel items -->
-        {foreach from=$bannerimages key=k item=b}<div class="item"{if !$bannercarousel && $k>0 && $bannerslide} style="display: none"{/if}>{if $b.link}<a href="{$b.link}">{/if}<img src="{$SITEURL}/images/{$bannersize}/bannerimages/{$b.src}"  alt=""{if $b.caption} title="{$b.caption}"{/if} />{if $b.link}</a>{/if}</div>
+        {foreach from=$bannerimages key=k item=b}<div class="item{if $k==0} active{/if}"{if !$bannercarousel && $k>0 && $bannerslide} style="display: none"{/if}>{if $b.link}<a href="{$b.link}">{/if}<img src="{$SITEURL}/images/{$bannersize}/bannerimages/{$b.src}"  alt=""{if $b.caption} title="{$b.caption}"{/if} />{if $b.link}</a>{/if}</div>
         {/foreach}
     </div>
     {if $bannercarousel}
