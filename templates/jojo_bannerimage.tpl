@@ -16,7 +16,7 @@
     {/if}
 </div>
 
-{if $bannernum>1 && $bannerslide}<script type="text/javascript">
+{if ($bannernum>1 || $bannernum<0) && $bannerslide}<script type="text/javascript">
 /*<![CDATA[*/
 var slidedelay = {$bannerinterval};
 var fadedelay = 2000;
