@@ -25,7 +25,14 @@ $(document).ready(function() {ldelim}
     $('#bannerslider').carousel({ldelim}
         interval: {$bannerinterval},
         pause: '{$bannercarouselpause}'
-    {rdelim});
+    {rdelim});{if $OPTIONS.jquery_touch == 'yes'}{literal}
+    $("#bannerslider").swiperight(function() {
+        $("#bannerslider").carousel('prev');
+    });
+    $("#bannerslider").swipeleft(function() {
+        $("#bannerslider").carousel('next');
+    });
+    {/literal}{/if}
 {else}
     $('#imageContainer').children(':first-child').addClass("showbanner");
     setTimeout(nextSlide, slidedelay);
