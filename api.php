@@ -51,12 +51,23 @@ $_options[] = array(
 );
 
 $_options[] = array(
+    'id' => 'bannerimage_titles',
+    'category' => 'Banner Images',
+    'label' => 'Display image titles',
+    'description' => '',
+    'type' => 'radio',
+    'default' => 'no',
+    'options' => 'yes,no',
+    'plugin' => 'jojo_bannerimage'
+);
+
+$_options[] = array(
     'id' => 'bannerimage_captions',
     'category' => 'Banner Images',
     'label' => 'Display image captions',
     'description' => '',
     'type' => 'radio',
-    'default' => 'yes',
+    'default' => 'no',
     'options' => 'yes,no',
     'plugin' => 'jojo_bannerimage'
 );

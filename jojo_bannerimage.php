@@ -61,6 +61,7 @@ class JOJO_Plugin_Jojo_bannerimage extends JOJO_Plugin
 
             $smarty->assign('bannernum', $bannerimage_num);
             $smarty->assign('bannersize', Jojo::getOption('bannerimage_size', '940x200'));
+            $smarty->assign('bannertitles', (boolean)(Jojo::getOption('bannerimage_titles', 'yes')=='yes'));
             $smarty->assign('bannercaptions', (boolean)(Jojo::getOption('bannerimage_captions', 'yes')=='yes'));
             $smarty->assign('bannercarousel', (boolean)(Jojo::getOption('bannerimage_carousel', 'no')=='yes'));
             $smarty->assign('bannercarouselnav', (boolean)(Jojo::getOption('bannerimage_carousel_nav', 'yes')=='yes'));
