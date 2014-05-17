@@ -65,6 +65,7 @@ class JOJO_Plugin_Jojo_bannerimage extends JOJO_Plugin
             $smarty->assign('bannercaptions', (boolean)(Jojo::getOption('bannerimage_captions', 'yes')=='yes'));
             $smarty->assign('bannercarousel', (boolean)(Jojo::getOption('bannerimage_carousel', 'no')=='yes'));
             $smarty->assign('bannercarouselnav', (boolean)(Jojo::getOption('bannerimage_carousel_nav', 'yes')=='yes'));
+            $smarty->assign('bannercarouselindicators', (boolean)(Jojo::getOption('bannerimage_carousel_indicators', 'no')=='yes'));
             $smarty->assign('bannercarouselpause', (Jojo::getOption('bannerimage_carousel_pause', 'yes')=='yes' ? 'hover' : 'none'));
             $smarty->assign('bannerinterval', Jojo::getOption('bannerimages_interval', 6000));
             $smarty->assign('bannerslide', (boolean)(Jojo::getOption('bannerimage_slide', 'yes')=='yes'));

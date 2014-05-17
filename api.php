@@ -106,6 +106,17 @@ $_options[] = array(
 );
 
 $_options[] = array(
+    'id' => 'bannerimage_carousel_indicators',
+    'category' => 'Banner Images',
+    'label' => 'Carousel Indicators',
+    'description' => 'Show Carousel slide indicator icons',
+    'type' => 'radio',
+    'default' => 'yes',
+    'options' => 'yes,no',
+    'plugin' => 'jojo_bannerimage'
+);
+
+$_options[] = array(
     'id' => 'bannerimage_carousel_pause',
     'category' => 'Banner Images',
     'label' => 'Carousel Pause',
